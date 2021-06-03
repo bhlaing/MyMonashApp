@@ -11,7 +11,11 @@
     <color name="primary_gray">#F8F8F9</color>
     <color name="primary_dark_gray">#636363</color>
 
-    <color name="seperator_blue">#2883B8</color>
-
+    <color name="blue">#2883B8</color>
+    <color name="yam">#917FBA</color>
+    <color name="pink">#E95D9C</color>
+    <color name="red">#E62D3F</color>
+    <color name="yellow">#FAB401</color>
+    <color name="green">#0CA137</color>
     <color name="orange">#ED7B67</color>
 </resources>

@@ -12,7 +12,7 @@ class MainActivity : BaseActivity() {
         supportActionBar?.apply {
             elevation = 0.0f
             displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-            val customTitle = layoutInflater.inflate(R.layout.layout_user_info, null)
+            val customTitle = layoutInflater.inflate(R.layout.view_user_info, null)
             customTitle.findViewById<TextView>(R.id.student_name).text = getString(R.string.profile_name, getString(R.string.place_holder_name))
             customTitle.findViewById<TextView>(R.id.date_week).text = getString(R.string.place_holder_date_week)
 

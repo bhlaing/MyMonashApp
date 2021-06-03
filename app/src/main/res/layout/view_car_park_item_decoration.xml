@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_blue" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_purple" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_pink" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_red" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_yellow" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_green" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/deco_item_common_padding"
+        android:src="@drawable/ic_round_deco_orange" />
+</LinearLayout>

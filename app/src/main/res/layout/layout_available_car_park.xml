@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/carpark_name"
+        style="@style/MonashApp.Text.Paragraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Clayton live feed" />
+
+    <include
+        layout="@layout/view_car_park_item_decoration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp" />
+
+    <TextView
+        android:id="@+id/carpark_number"
+        style="@style/MonashApp.Text.Title"
+        android:textColor="@color/blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        tools:text="645" />
+</LinearLayout>
