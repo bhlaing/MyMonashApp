@@ -1,0 +1,2 @@
+rootProject.name = "MyMonashApp"
+include ':app'
