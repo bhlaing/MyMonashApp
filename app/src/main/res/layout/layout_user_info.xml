@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/student_name"
+        style="@style/MonashApp.Text.PageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Hey, Kier" />
+
+    <TextView
+        android:id="@+id/date_week"
+        style="@style/MonashApp.Text.Captions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="17/05 Tuesday, Week 8" />
+
+</LinearLayout>

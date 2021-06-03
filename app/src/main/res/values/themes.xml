@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.MyMonashApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary_gray</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,4 +13,40 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Region text styles -->
+    <style name="MonashApp.Text" parent="TextAppearance.AppCompat">
+        <!-- Do not use -->
+    </style>
+    <!-- Activity,Fragment titles -->
+    <style name="MonashApp.Text.PageTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Paragraphs -->
+    <style name="MonashApp.Text.Paragraph">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-condensed-light</item>
+        <item name="android:padding">4dp</item>
+    </style>
+    <!-- List titles, Buttons, Tabs -->
+    <style name="MonashApp.Text.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+    </style>
+    <!-- List item titles, Important text snippets -->
+    <style name="MonashApp.Text.ItemTitle">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- Secondary text, captions -->
+    <style name="MonashApp.Text.Captions">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_dark_gray</item>
+    </style>
+    <!-- Text inputs -->
+    <style name="MonashApp.Text.Input">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- End region -->
 </resources>
