@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.domain._di
+package com.billy.mymonashapp.domain.profile._di
 
 import com.billy.mymonashapp.data.pofile.StudentService
 import com.billy.mymonashapp.data.pofile.StudentServiceImpl

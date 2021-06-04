@@ -1,8 +1,8 @@
-package com.billy.mymonashapp.domain.profile
+package com.billy.mymonashapp.domain.profile.observer
 
 import com.billy.mymonashapp.data.pofile.StudentService
 import com.billy.mymonashapp.domain.ResultInteractor
-import com.billy.mymonashapp.domain.StudentProfile
+import com.billy.mymonashapp.domain.profile.StudentProfile
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

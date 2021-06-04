@@ -1,7 +1,7 @@
 package com.billy.mymonashapp.data.pofile
 
-import com.billy.mymonashapp.domain.StudentProfile
-import com.billy.mymonashapp.domain.mapToStudentProfile
+import com.billy.mymonashapp.domain.profile.StudentProfile
+import com.billy.mymonashapp.domain.profile.mapToStudentProfile
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

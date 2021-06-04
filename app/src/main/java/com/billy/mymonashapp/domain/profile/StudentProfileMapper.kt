@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.domain
+package com.billy.mymonashapp.domain.profile
 
 import com.billy.mymonashapp.data.pofile.StudentProfileDO
 
@@ -12,11 +12,5 @@ fun mapToStudentProfile(profileDO: StudentProfileDO) =
                 it.lecturer,
                 it.campusInfoString
             )
-        },
-        profileDO.carParks.map {
-            StudentProfile.CarPark(it.carparkName, it.availableSpaces)
-        },
-        profileDO.shuttleBuses.map {
-            StudentProfile.ShuttleBus(it.from, it.to, it.duration)
         }
     )

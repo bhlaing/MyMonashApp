@@ -5,4 +5,5 @@
     <string name="place_holder_date_week">17/05 Tuesday, Week 8</string>
     <string name="today">TODAY</string>
     <string name="available_carpark">Available car parks</string>
+    <string name="shuttle_bus">Intercampus Shuttle Bus</string>
 </resources>

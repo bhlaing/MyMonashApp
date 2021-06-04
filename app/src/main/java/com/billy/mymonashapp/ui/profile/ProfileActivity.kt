@@ -12,7 +12,9 @@ import com.billy.mymonashapp.BaseActivity
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.observeNonNull
 import com.billy.mymonashapp.databinding.ActivityProfileBinding
-import com.billy.mymonashapp.domain.StudentProfile
+import com.billy.mymonashapp.domain.carpark.AvailableCarParks
+import com.billy.mymonashapp.domain.profile.StudentProfile
+import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
 import com.billy.mymonashapp.ui.profile.adapter.ProfileAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +61,9 @@ class ProfileActivity : BaseActivity() {
 
     private fun setUpObservers() {
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
-        observeNonNull(viewModel.userProfile, ::onUserProfileStateChanged)
+        observeNonNull(viewModel.userProfile, ::onUserProfileStateChange)
+        observeNonNull(viewModel.availableCarParks, ::onCarParkAvailabilityChange)
+        observeNonNull(viewModel.shuttleBusSchedule, ::onShuttleBusScheduleChange)
     }
 
     private fun onLoadingStateChanged(loading: Boolean) {
@@ -70,7 +74,15 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    private fun onUserProfileStateChanged(studentProfile: StudentProfile) {
-        profileAdapter.setProfile(studentProfile)
+    private fun onUserProfileStateChange(studentProfile: StudentProfile) {
+        profileAdapter.setLectures(studentProfile.lectures)
+    }
+
+    private fun onCarParkAvailabilityChange(availableCarParks: AvailableCarParks) {
+        profileAdapter.setAvailableCarParks(availableCarParks.parkings)
+    }
+
+    private fun onShuttleBusScheduleChange(shuttleBusSchedule: ShuttleBusSchedule) {
+        profileAdapter.setShuttleBuses(shuttleBusSchedule.buses)
     }
 }
