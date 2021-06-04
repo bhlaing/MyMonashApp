@@ -2,6 +2,7 @@ package com.billy.mymonashapp
 
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 open class BaseActivity : AppCompatActivity() {
 

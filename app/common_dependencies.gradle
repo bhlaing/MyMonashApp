@@ -45,7 +45,7 @@ ext {
     coroutines_play_services_version = "1.1.1"
 
     // dependency injection
-    hilt_android_version = "2.28-alpha"
+    hilt_android_version = "2.35"
     androidx_hilt_lifecycle_viewmodel_version = "1.0.0-alpha02"
 
     // third party login

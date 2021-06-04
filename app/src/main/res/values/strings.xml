@@ -3,4 +3,6 @@
     <string name="profile_name">Hey, %1$s</string>
     <string name="place_holder_name">Kier</string>
     <string name="place_holder_date_week">17/05 Tuesday, Week 8</string>
+    <string name="today">TODAY</string>
+    <string name="available_carpark">Available car parks</string>
 </resources>

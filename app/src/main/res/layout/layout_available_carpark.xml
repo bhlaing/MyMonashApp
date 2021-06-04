@@ -6,12 +6,15 @@
     android:orientation="vertical"
     app:elevation="20dp">
 
-    <include
-        android:id="@+id/cell1"
-        layout="@layout/layout_lecture_group_header" />
+    <TextView
+        style="@style/MonashApp.Text.Captions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/deco_item_common_padding"
+        android:text="@string/available_carpark"/>
 
     <LinearLayout
-        android:id="@+id/lecture_list_container"
+        android:id="@+id/carpark_list_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/campus_from"
+        style="@style/MonashApp.Text.Paragraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        tools:text="Clayton live feed" />
+
+    <ImageView
+        android:id="@+id/to_from_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/campus_from"
+        android:src="@drawable/ic_bus_route" />
+
+    <TextView
+        android:id="@+id/campus_to"
+        style="@style/MonashApp.Text.Paragraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/to_from_image"
+        tools:text="Clayton live feed" />
+
+    <TextView
+        android:id="@+id/duration"
+        style="@style/MonashApp.Text.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="32dp"
+        android:padding="4dp"
+        android:textColor="@color/blue"
+        tools:text="4 mins" />
+</RelativeLayout>
