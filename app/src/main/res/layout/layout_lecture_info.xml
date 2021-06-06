@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="12dp">
 
     <LinearLayout
         android:id="@+id/period_holder"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/vertical_seperator"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         android:orientation="vertical">
 
         <TextView
@@ -34,20 +30,16 @@
 
     <View style="@style/Divider.Vertical"
         android:id="@+id/vertical_seperator"
+        android:layout_height="100dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        app:layout_constraintLeft_toRightOf="@+id/period_holder"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_toEndOf="@id/period_holder"/>
 
     <LinearLayout
         android:id="@+id/lecture_info_holder"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:layout_constraintLeft_toRightOf="@+id/vertical_seperator"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_toEndOf="@+id/vertical_seperator"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -73,4 +65,4 @@
             tools:text="S4, 13 College Walk, Clayton" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

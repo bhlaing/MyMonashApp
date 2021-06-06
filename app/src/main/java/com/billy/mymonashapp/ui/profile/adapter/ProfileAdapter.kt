@@ -1,8 +1,13 @@
 package com.billy.mymonashapp.ui.profile.adapter
 
+import android.graphics.drawable.ShapeDrawable
+import android.os.Build
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.inflate
@@ -10,6 +15,7 @@ import com.billy.mymonashapp.databinding.*
 import com.billy.mymonashapp.domain.carpark.AvailableCarParks
 import com.billy.mymonashapp.domain.profile.StudentProfile
 import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
+
 
 private const val NUMBER_OF_SECTIONS = 3
 private const val LECTURES = 0
@@ -22,6 +28,7 @@ class ProfileAdapter :
     private var carParks: List<AvailableCarParks.CarPark> = emptyList()
     private var shuttleBuses: List<ShuttleBusSchedule.ShuttleBus> = emptyList()
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
             LECTURES -> LecturesViewHolder(parent.inflate(R.layout.layout_lecture_group))
@@ -64,6 +71,31 @@ class ProfileAdapter :
         notifyItemChanged(SHUTTLEBUS)
     }
 
+    private fun LinearLayout.addViewByIndex(index: Int, f: () -> View) {
+        val view = f()
+        if (index == 0) {
+            addView(view)
+        } else {
+            addSeperatedView(view)
+        }
+    }
+
+    private fun ViewGroup.addSeperatedView(view: View) {
+        val seperator =
+            LayoutInflater.from(this.context).inflate(R.layout.view_horizontal_divider, null)
+                .apply {
+                    val params = LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                    params.gravity = Gravity.CENTER_HORIZONTAL
+
+                    layoutParams = params
+                }
+        addView(seperator)
+        addView(view)
+    }
+
     inner class LecturesViewHolder(
         private val view: View
     ) : RecyclerView.ViewHolder(view) {
@@ -71,7 +103,9 @@ class ProfileAdapter :
 
         fun bind(lectures: List<StudentProfile.Lecture>) {
             binding.lectureListContainer.apply {
-                lectures.forEach { addView(createLectureView(it)) }
+                lectures.forEachIndexed { index, lecture ->
+                    addViewByIndex(index) { createLectureView(lecture) }
+                }
             }
         }
 
@@ -97,7 +131,9 @@ class ProfileAdapter :
 
         fun bind(carparks: List<AvailableCarParks.CarPark>) {
             binding.carparkListContainer.apply {
-                carparks.forEach { addView(createCarparkView(it)) }
+                carparks.forEachIndexed { index, carPark ->
+                    addViewByIndex(index) { createCarparkView(carPark) }
+                }
             }
         }
 
@@ -118,7 +154,11 @@ class ProfileAdapter :
 
         fun bind(buses: List<ShuttleBusSchedule.ShuttleBus>) {
             binding.schedulesContainer.apply {
-                buses.forEach { addView(createCarparkView(it)) }
+                buses.forEachIndexed { index, shuttleBus ->
+                    addViewByIndex(index) {
+                        createCarparkView(shuttleBus)
+                    }
+                }
             }
         }
 
