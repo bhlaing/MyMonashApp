@@ -16,6 +16,9 @@ import com.billy.mymonashapp.domain.carpark.AvailableCarParks
 import com.billy.mymonashapp.domain.profile.StudentProfile
 import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
 import com.billy.mymonashapp.ui.profile.adapter.ProfileAdapter
+import com.billy.mymonashapp.ui.profile.model.CarPark
+import com.billy.mymonashapp.ui.profile.model.Lecture
+import com.billy.mymonashapp.ui.profile.model.ShuttleBus
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -60,6 +63,8 @@ class ProfileActivity : BaseActivity() {
     }
 
     private fun setUpObservers() {
+        randomiseRows()
+
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
         observeNonNull(viewModel.userProfile, ::onUserProfileStateChange)
         observeNonNull(viewModel.availableCarParks, ::onCarParkAvailabilityChange)
@@ -74,15 +79,21 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    private fun onUserProfileStateChange(studentProfile: StudentProfile) {
-        profileAdapter.setLectures(studentProfile.lectures)
+    private fun onUserProfileStateChange(lectures: List<Lecture>) {
+        profileAdapter.setLectures(lectures)
     }
 
-    private fun onCarParkAvailabilityChange(availableCarParks: AvailableCarParks) {
-        profileAdapter.setAvailableCarParks(availableCarParks.parkings)
+    private fun onCarParkAvailabilityChange(availableCarParks: List<CarPark>) {
+        profileAdapter.setAvailableCarParks(availableCarParks)
     }
 
-    private fun onShuttleBusScheduleChange(shuttleBusSchedule: ShuttleBusSchedule) {
-        profileAdapter.setShuttleBuses(shuttleBusSchedule.buses)
+    private fun onShuttleBusScheduleChange(buses: List<ShuttleBus>) {
+        profileAdapter.setShuttleBuses(buses)
+    }
+
+    private fun randomiseRows() {
+        viewModel.lectureCount = (0..2).random()
+        viewModel.busCount = (0..2).random()
+        viewModel.carParkCount = (0..2).random()
     }
 }

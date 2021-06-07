@@ -9,13 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/deco_item_common_padding"
-        android:text="@string/shuttle_bus"/>
+        android:text="@string/shuttle_bus" />
 
     <LinearLayout
         android:id="@+id/schedules_container"
+        style="@style/DropShadow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
-        android:background="@drawable/background_shadow"
         android:orientation="vertical" />
 </LinearLayout>

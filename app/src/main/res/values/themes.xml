@@ -68,4 +68,13 @@
         <item name="android:layout_width">2dp</item>
         <item name="android:background">@color/blue</item>
     </style>
+    <!-- End region -->
+
+    <!-- Layout styling -->
+    <style name="DropShadow">
+        <item name="android:background">@drawable/background_shadow</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <!-- End region -->
 </resources>

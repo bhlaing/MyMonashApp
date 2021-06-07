@@ -7,6 +7,9 @@ import com.billy.mymonashapp.domain.profile.StudentProfile
 import com.billy.mymonashapp.domain.profile.observer.ObserveStudentProfile
 import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.observer.ObserveShuttleBusesSchedule
+import com.billy.mymonashapp.ui.profile.model.CarPark
+import com.billy.mymonashapp.ui.profile.model.Lecture
+import com.billy.mymonashapp.ui.profile.model.ShuttleBus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
@@ -21,25 +24,57 @@ class ProfileViewModel @Inject constructor(
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> = _loading
 
-    val userProfile: LiveData<StudentProfile> =
+    // Not ideal to expose internal states such as these in real-life scenario
+    // I've done this only for convenient in order to randomise
+    // arguably these are presentation logics and perhaps should sit in the view
+    // and use espresso to test
+    var lectureCount = 2
+    var carParkCount = 2
+    var busCount = 2
+
+    // We can write a function to do randomising instead of repeating the code
+    // I've decided to leave it due to time constraint
+    val userProfile: LiveData<List<Lecture>> =
         liveData {
             observeStudentProfile(8).collect { profile ->
-                profile?.let { emitSafely(it) }
+                val lectures = mutableListOf<Lecture>()
+                profile?.lectures?.mapIndexed { index, lecture ->
+                    if (index <= lectureCount) {
+                        lectures.add(mapToLecture(lecture))
+                    }
+                }
+
+                emitSafely(lectures)
             }
         }
 
-    val shuttleBusSchedule: LiveData<ShuttleBusSchedule> =
+    val shuttleBusSchedule: LiveData<List<ShuttleBus>> =
         liveData {
             observeShuttleBusSchedule(Unit).collect { busSchedule ->
-                busSchedule?.let { emitSafely(it) }
+                val buses = mutableListOf<ShuttleBus>()
+                busSchedule?.buses?.mapIndexed { index, shuttleBus ->
+                    if (index <= carParkCount) {
+                        buses.add(mapToShuttleBus(shuttleBus))
+                    }
+                }
+
+                emitSafely(buses)
             }
         }
 
-    val availableCarParks: LiveData<AvailableCarParks> = liveData {
-        observeAvailableCarParks(Unit).collect { carParks ->
-            carParks?.let { emitSafely(it) }
+    val availableCarParks: LiveData<List<CarPark>> =
+        liveData {
+            observeAvailableCarParks(Unit).collect { carParks ->
+                val carparks = mutableListOf<CarPark>()
+                carParks?.parkings?.mapIndexed { index, carPark ->
+                    if (index <= busCount) {
+                        carparks.add(mapToCarParkInfo(carPark))
+                    }
+                }
+
+                emitSafely(carparks)
+            }
         }
-    }
 
     private suspend fun <T> LiveDataScope<T>.emitSafely(data: T) =
         try {

@@ -1,6 +1,5 @@
 package com.billy.mymonashapp.ui.profile.adapter
 
-import android.graphics.drawable.ShapeDrawable
 import android.os.Build
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.inflate
 import com.billy.mymonashapp.databinding.*
-import com.billy.mymonashapp.domain.carpark.AvailableCarParks
-import com.billy.mymonashapp.domain.profile.StudentProfile
-import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
+import com.billy.mymonashapp.ui.profile.model.CarPark
+import com.billy.mymonashapp.ui.profile.model.Lecture
+import com.billy.mymonashapp.ui.profile.model.ShuttleBus
 
 
 private const val NUMBER_OF_SECTIONS = 3
@@ -24,9 +23,9 @@ private const val SHUTTLEBUS = 2
 
 class ProfileAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var lectures: List<StudentProfile.Lecture> = emptyList()
-    private var carParks: List<AvailableCarParks.CarPark> = emptyList()
-    private var shuttleBuses: List<ShuttleBusSchedule.ShuttleBus> = emptyList()
+    private var lectures: List<Lecture> = emptyList()
+    private var carParks: List<CarPark> = emptyList()
+    private var shuttleBuses: List<ShuttleBus> = emptyList()
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -54,19 +53,26 @@ class ProfileAdapter :
         }
     }
 
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        super.onViewRecycled(holder)
+        if(holder is CleanableViewGroup) {
+            holder.onCleanUp()
+        }
+    }
+
     override fun getItemCount(): Int = NUMBER_OF_SECTIONS
 
-    fun setLectures(lectures: List<StudentProfile.Lecture>) {
+    fun setLectures(lectures: List<Lecture>) {
         this.lectures = lectures
         notifyItemChanged(LECTURES)
     }
 
-    fun setAvailableCarParks(carparks: List<AvailableCarParks.CarPark>) {
+    fun setAvailableCarParks(carparks: List<CarPark>) {
         this.carParks = carparks
         notifyItemChanged(CARPARKS)
     }
 
-    fun setShuttleBuses(shuttleBuses: List<ShuttleBusSchedule.ShuttleBus>) {
+    fun setShuttleBuses(shuttleBuses: List<ShuttleBus>) {
         this.shuttleBuses = shuttleBuses
         notifyItemChanged(SHUTTLEBUS)
     }
@@ -98,10 +104,10 @@ class ProfileAdapter :
 
     inner class LecturesViewHolder(
         private val view: View
-    ) : RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutLectureGroupBinding.bind(view)
 
-        fun bind(lectures: List<StudentProfile.Lecture>) {
+        fun bind(lectures: List<Lecture>) {
             binding.lectureListContainer.apply {
                 lectures.forEachIndexed { index, lecture ->
                     addViewByIndex(index) { createLectureView(lecture) }
@@ -109,7 +115,7 @@ class ProfileAdapter :
             }
         }
 
-        private fun createLectureView(lecture: StudentProfile.Lecture): View {
+        private fun createLectureView(lecture: Lecture): View {
             val lectureView =
                 LayoutInflater.from(view.context).inflate(R.layout.layout_lecture_info, null)
             val binding = LayoutLectureInfoBinding.bind(lectureView)
@@ -122,14 +128,18 @@ class ProfileAdapter :
 
             return lectureView
         }
+
+        override fun onCleanUp() {
+            binding.lectureListContainer.removeAllViews()
+        }
     }
 
     inner class AvailableCarParksViewHolder(
         private val view: View
-    ) : RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutAvailableCarparkBinding.bind(view)
 
-        fun bind(carparks: List<AvailableCarParks.CarPark>) {
+        fun bind(carparks: List<CarPark>) {
             binding.carparkListContainer.apply {
                 carparks.forEachIndexed { index, carPark ->
                     addViewByIndex(index) { createCarparkView(carPark) }
@@ -137,7 +147,7 @@ class ProfileAdapter :
             }
         }
 
-        private fun createCarparkView(carpark: AvailableCarParks.CarPark): View {
+        private fun createCarparkView(carpark: CarPark): View {
             val carParkView =
                 LayoutInflater.from(view.context).inflate(R.layout.view_available_car_park, null)
             val binding = ViewAvailableCarParkBinding.bind(carParkView)
@@ -145,14 +155,18 @@ class ProfileAdapter :
             binding.carparkNumber.text = carpark.availableSpaces
             return carParkView
         }
+
+        override fun onCleanUp() {
+            binding.carparkListContainer.removeAllViews()
+        }
     }
 
     inner class ShuttleBusScheduleViewHolder(
         private val view: View
-    ) : RecyclerView.ViewHolder(view) {
+    ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutShuttleBusesBinding.bind(view)
 
-        fun bind(buses: List<ShuttleBusSchedule.ShuttleBus>) {
+        fun bind(buses: List<ShuttleBus>) {
             binding.schedulesContainer.apply {
                 buses.forEachIndexed { index, shuttleBus ->
                     addViewByIndex(index) {
@@ -162,7 +176,7 @@ class ProfileAdapter :
             }
         }
 
-        private fun createCarparkView(buses: ShuttleBusSchedule.ShuttleBus): View {
+        private fun createCarparkView(buses: ShuttleBus): View {
             val view =
                 LayoutInflater.from(view.context).inflate(R.layout.view_shuttle_bus, null)
             val binding = ViewShuttleBusBinding.bind(view)
@@ -171,5 +185,13 @@ class ProfileAdapter :
             binding.duration.text = buses.duration
             return view
         }
+
+        override fun onCleanUp() {
+            binding.schedulesContainer.removeAllViews()
+        }
+    }
+
+    interface CleanableViewGroup {
+        fun onCleanUp()
     }
 }
