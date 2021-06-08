@@ -24,14 +24,11 @@ class ProfileActivity : BaseActivity() {
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var bindings: ActivityProfileBinding
     private lateinit var profileAdapter: ProfileAdapter
-    private lateinit var titleBindings: ViewUserInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         bindings = ActivityProfileBinding.inflate(layoutInflater)
-        titleBindings = ViewUserInfoBinding.inflate(layoutInflater)
-
         setContentView(bindings.root)
 
         setCustomActionBar()
@@ -79,9 +76,9 @@ class ProfileActivity : BaseActivity() {
     }
 
     private fun randomiseRows() {
-        viewModel.lectureCount = (0..2).random()
-        viewModel.busCount = (0..2).random()
-        viewModel.carParkCount = (0..2).random()
+        viewModel.lectureCount = (1..3).random()
+        viewModel.busCount = (1..3).random()
+        viewModel.carParkCount = (1..3).random()
     }
 
     @SuppressLint("InflateParams")
@@ -98,7 +95,7 @@ class ProfileActivity : BaseActivity() {
             customTitle.findViewById<TextView>(R.id.date_week).text =
                 getString(R.string.place_holder_date_week)
 
-            customView = titleBindings.root
+            customView = customTitle
         }
     }
 }
