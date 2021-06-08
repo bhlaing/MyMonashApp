@@ -84,7 +84,7 @@ All styles can be found under themes.xml
 ### Compromises
 **Graphics**
 - Darker background shadow as supposed to the one in the requirement. Current shadow uses readily available _@android:drawable/dialog_holo_light_frame_
-  This is due to time-constraint and focus on implementation. Ideally we may want to create 9patch image for the shadow and replace current image
+  This is due to time-constraint and to focus on implementation. Ideally we may want to create 9patch image for the shadow and replace current image
 - Slight color different for TODAY box at the top. Also assumed background as such should be provided by designers ESPECIALLY when gradients are involved
   <br />
 **Data**
