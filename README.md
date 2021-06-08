@@ -10,9 +10,9 @@
   - Model naming
   - Layout naming
   - Drawable resource naming
-- [Compromises and implementation decisions](#compromises-and-implementation-decisions)
+- [Implementation decisions and compromises](#compromises-and-implementation-decisions)
 - [Tests](#tests)
-- [CI/CD](#ci/cd)
+- [CI/CD](#continueous-integration-and-delivery)
 - [Acknowledgement](#acknowledgement)
 
 
@@ -50,7 +50,6 @@ simplay extracting domain and data layer into feature modules <br/>
 Each feature also holds it's own \_di module to allow easy refactor/removal <br/> 
 
 ## Standards
-<br/>
 **Themes and Styles**
 All styles can be found under themes.xml
 - Activity, Fragment tiles -> MonashApp.Text.PageTitle
@@ -73,7 +72,7 @@ All styles can be found under themes.xml
 - Icons are surfixed with ic_xxx
 - Background are surfixed with background_xx
 
-## Compromises and Implementation decisions
+## Implementation decisions and Compromises 
 ### Implementation decisions 
 
 **Asynchronous flow**
@@ -101,7 +100,7 @@ All styles can be found under themes.xml
 ## Tests
 100% unit-tests for Domain mappers and ViewModel
 
-## CI/CD
+## Continuous integration and delivery
 Please see _.github/workflows/ci_pr_build.yml_ for implementation
 <br />
 [Failed CI as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
