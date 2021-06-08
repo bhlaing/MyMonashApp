@@ -1,11 +1,11 @@
-package com.billy.mymonashapp.ui.lecture
+package com.billy.mymonashapp.ui.home
 
 import com.billy.mymonashapp.domain.carpark.AvailableCarParks
 import com.billy.mymonashapp.domain.lecture.StudentLecture
 import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
-import com.billy.mymonashapp.ui.lecture.model.CarParkItem
-import com.billy.mymonashapp.ui.lecture.model.LectureItem
-import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
+import com.billy.mymonashapp.ui.home.model.CarParkItem
+import com.billy.mymonashapp.ui.home.model.LectureItem
+import com.billy.mymonashapp.ui.home.model.ShuttleBusItem
 
 fun mapToLecture(lecture: StudentLecture.Lecture) =
     LectureItem(lecture.fromTime,

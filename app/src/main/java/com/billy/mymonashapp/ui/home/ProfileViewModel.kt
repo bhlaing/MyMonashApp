@@ -1,12 +1,12 @@
-package com.billy.mymonashapp.ui.lecture
+package com.billy.mymonashapp.ui.home
 
 import androidx.lifecycle.*
 import com.billy.mymonashapp.domain.carpark.observer.ObserveAvailableCarParks
 import com.billy.mymonashapp.domain.lecture.observer.ObserveStudentLectures
 import com.billy.mymonashapp.domain.shuttlebus.observer.ObserveShuttleBusesSchedule
-import com.billy.mymonashapp.ui.lecture.model.CarParkItem
-import com.billy.mymonashapp.ui.lecture.model.LectureItem
-import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
+import com.billy.mymonashapp.ui.home.model.CarParkItem
+import com.billy.mymonashapp.ui.home.model.LectureItem
+import com.billy.mymonashapp.ui.home.model.ShuttleBusItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject

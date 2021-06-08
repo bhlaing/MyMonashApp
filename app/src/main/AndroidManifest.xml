@@ -13,7 +13,7 @@
         android:theme="@style/Theme.MyMonashApp">
         <activity
             android:screenOrientation="portrait"
-            android:name=".ui.lecture.ProfileActivity"
+            android:name=".ui.home.ProfileActivity"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

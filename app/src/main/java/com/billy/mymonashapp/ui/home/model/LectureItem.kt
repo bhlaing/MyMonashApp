@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.ui.lecture.model
+package com.billy.mymonashapp.ui.home.model
 
 class LectureItem(
     val fromTime: String,

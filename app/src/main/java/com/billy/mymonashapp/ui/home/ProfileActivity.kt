@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.ui.lecture
+package com.billy.mymonashapp.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,10 +12,10 @@ import com.billy.mymonashapp.ui.BaseActivity
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.observeNonNull
 import com.billy.mymonashapp.databinding.ActivityProfileBinding
-import com.billy.mymonashapp.ui.lecture.adapter.ProfileAdapter
-import com.billy.mymonashapp.ui.lecture.model.CarParkItem
-import com.billy.mymonashapp.ui.lecture.model.LectureItem
-import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
+import com.billy.mymonashapp.ui.home.adapter.ProfileAdapter
+import com.billy.mymonashapp.ui.home.model.CarParkItem
+import com.billy.mymonashapp.ui.home.model.LectureItem
+import com.billy.mymonashapp.ui.home.model.ShuttleBusItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

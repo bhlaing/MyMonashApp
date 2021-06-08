@@ -17,7 +17,7 @@ import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.mapToShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.observer.ObserveShuttleBusesSchedule
 import com.billy.mymonashapp.getOrAwaitValue
-import com.billy.mymonashapp.ui.lecture.ProfileViewModel
+import com.billy.mymonashapp.ui.home.ProfileViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking

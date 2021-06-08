@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.ui.lecture.adapter
+package com.billy.mymonashapp.ui.home.adapter
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.inflate
 import com.billy.mymonashapp.databinding.*
-import com.billy.mymonashapp.ui.lecture.model.CarParkItem
-import com.billy.mymonashapp.ui.lecture.model.LectureItem
-import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
+import com.billy.mymonashapp.ui.home.model.CarParkItem
+import com.billy.mymonashapp.ui.home.model.LectureItem
+import com.billy.mymonashapp.ui.home.model.ShuttleBusItem
 
 private const val NUMBER_OF_SECTIONS = 3
 private const val LECTURES = 0
