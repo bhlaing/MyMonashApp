@@ -75,7 +75,7 @@ All styles can be found under themes.xml
 ### Implementation decisions 
 
 **Asynchronous flow**
-- Monash app utalises coroutine flows to achieve live data update for available carparks and shuttle bus information
+- Monash app utilises coroutine flows to achieve live data update for available carparks and shuttle bus information
 - Each section in recycler-view is updated seperately to avoid refreshing the whole UI everytime data stream is updated
 
 **Background shadow**
