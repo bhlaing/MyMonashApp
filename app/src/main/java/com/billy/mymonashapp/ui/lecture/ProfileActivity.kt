@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.ui.profile
+package com.billy.mymonashapp.ui.lecture
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,11 +12,10 @@ import com.billy.mymonashapp.BaseActivity
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.observeNonNull
 import com.billy.mymonashapp.databinding.ActivityProfileBinding
-import com.billy.mymonashapp.databinding.ViewUserInfoBinding
-import com.billy.mymonashapp.ui.profile.adapter.ProfileAdapter
-import com.billy.mymonashapp.ui.profile.model.CarPark
-import com.billy.mymonashapp.ui.profile.model.Lecture
-import com.billy.mymonashapp.ui.profile.model.ShuttleBus
+import com.billy.mymonashapp.ui.lecture.adapter.ProfileAdapter
+import com.billy.mymonashapp.ui.lecture.model.CarParkItem
+import com.billy.mymonashapp.ui.lecture.model.LectureItem
+import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,8 +50,8 @@ class ProfileActivity : BaseActivity() {
 
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
         observeNonNull(viewModel.availableLectures, ::onUserProfileStateChange)
-        observeNonNull(viewModel.availableCarParks, ::onCarParkAvailabilityChange)
-        observeNonNull(viewModel.shuttleBusSchedule, ::onShuttleBusScheduleChange)
+        observeNonNull(viewModel.availableCarParksItem, ::onCarParkAvailabilityChange)
+        observeNonNull(viewModel.shuttleBusItemSchedule, ::onShuttleBusScheduleChange)
     }
 
     private fun onLoadingStateChanged(loading: Boolean) {
@@ -63,16 +62,16 @@ class ProfileActivity : BaseActivity() {
         }
     }
 
-    private fun onUserProfileStateChange(lectures: List<Lecture>) {
-        profileAdapter.setLectures(lectures)
+    private fun onUserProfileStateChange(lectureItems: List<LectureItem>) {
+        profileAdapter.setLectures(lectureItems)
     }
 
-    private fun onCarParkAvailabilityChange(availableCarParks: List<CarPark>) {
-        profileAdapter.setAvailableCarParks(availableCarParks)
+    private fun onCarParkAvailabilityChange(availableCarParkItems: List<CarParkItem>) {
+        profileAdapter.setAvailableCarParks(availableCarParkItems)
     }
 
-    private fun onShuttleBusScheduleChange(buses: List<ShuttleBus>) {
-        profileAdapter.setShuttleBuses(buses)
+    private fun onShuttleBusScheduleChange(busItems: List<ShuttleBusItem>) {
+        profileAdapter.setShuttleBuses(busItems)
     }
 
     private fun randomiseRows() {

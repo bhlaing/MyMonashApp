@@ -1,9 +1,9 @@
-package com.billy.mymonashapp.domain.profile
+package com.billy.mymonashapp.data.lecture
 
-class StudentProfile(
-    val lectures: List<Lecture>
+class StudentLectureDO(
+    val lectures: List<LectureDO>
 ) {
-    class Lecture(
+    class LectureDO(
         val fromTime: String,
         val toTime: String,
         val name: String,

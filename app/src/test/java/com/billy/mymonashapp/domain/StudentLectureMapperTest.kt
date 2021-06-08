@@ -1,15 +1,15 @@
 package com.billy.mymonashapp.domain
 
 import com.billy.mymonashapp.BaseTest
-import com.billy.mymonashapp.domain.builders.buildLecture
-import com.billy.mymonashapp.domain.builders.buildStudentProfile
-import com.billy.mymonashapp.domain.profile.mapToStudentProfile
+import com.billy.mymonashapp.data.lecture.buildLecture
+import com.billy.mymonashapp.data.lecture.buildStudentLecture
+import com.billy.mymonashapp.domain.lecture.mapToStudentProfile
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class StudentProfileMapperTest : BaseTest() {
-    private val studentProfileDO = buildStudentProfile(
+class StudentLectureMapperTest : BaseTest() {
+    private val studentLectureDO = buildStudentLecture(
         listOf(
             buildLecture(
                 fromTime = "8:00 AM",
@@ -29,8 +29,8 @@ class StudentProfileMapperTest : BaseTest() {
     )
 
     @Test
-    fun `given a student profile data with lectures, when mapping, then maps lectures correctly`() {
-        val profile = mapToStudentProfile(studentProfileDO)
+    fun `given a student lecture profile data with lectures, when mapping, then maps lectures correctly`() {
+        val profile = mapToStudentProfile(studentLectureDO)
 
         assertTrue(profile.lectures.size == 2)
         with(profile.lectures.first()) {

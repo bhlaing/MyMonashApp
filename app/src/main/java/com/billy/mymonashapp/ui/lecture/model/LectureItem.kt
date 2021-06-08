@@ -1,6 +1,6 @@
-package com.billy.mymonashapp.ui.profile.model
+package com.billy.mymonashapp.ui.lecture.model
 
-class Lecture(
+class LectureItem(
     val fromTime: String,
     val toTime: String,
     val name: String,

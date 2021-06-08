@@ -8,7 +8,7 @@ import junit.framework.TestCase.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class ShuttleBusScheduleMapperTest : BaseTest() {
+class ShuttleBusItemScheduleMapperTest : BaseTest() {
     private val busSchedule = buildShuttleBusSchedule(
         listOf(
             buildShuttleBus(from = "Clayton", to = "Caufield", duration = "4 mins"),

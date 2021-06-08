@@ -1,4 +1,4 @@
-package com.billy.mymonashapp.ui.profile.adapter
+package com.billy.mymonashapp.ui.lecture.adapter
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.inflate
 import com.billy.mymonashapp.databinding.*
-import com.billy.mymonashapp.ui.profile.model.CarPark
-import com.billy.mymonashapp.ui.profile.model.Lecture
-import com.billy.mymonashapp.ui.profile.model.ShuttleBus
+import com.billy.mymonashapp.ui.lecture.model.CarParkItem
+import com.billy.mymonashapp.ui.lecture.model.LectureItem
+import com.billy.mymonashapp.ui.lecture.model.ShuttleBusItem
 
 private const val NUMBER_OF_SECTIONS = 3
 private const val LECTURES = 0
@@ -24,9 +24,9 @@ private const val SHUTTLEBUS = 2
 @SuppressLint("InflateParams")
 class ProfileAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var lectures: List<Lecture> = emptyList()
-    private var carParks: List<CarPark> = emptyList()
-    private var shuttleBuses: List<ShuttleBus> = emptyList()
+    private var lectureItems: List<LectureItem> = emptyList()
+    private var carParkItems: List<CarParkItem> = emptyList()
+    private var shuttleBusItems: List<ShuttleBusItem> = emptyList()
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -48,9 +48,9 @@ class ProfileAdapter :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (position) {
-            LECTURES -> (holder as LecturesViewHolder).bind(lectures)
-            CARPARKS -> (holder as AvailableCarParksViewHolder).bind(carParks)
-            SHUTTLEBUS -> (holder as ShuttleBusScheduleViewHolder).bind(shuttleBuses)
+            LECTURES -> (holder as LecturesViewHolder).bind(lectureItems)
+            CARPARKS -> (holder as AvailableCarParksViewHolder).bind(carParkItems)
+            SHUTTLEBUS -> (holder as ShuttleBusScheduleViewHolder).bind(shuttleBusItems)
         }
     }
 
@@ -63,18 +63,18 @@ class ProfileAdapter :
 
     override fun getItemCount(): Int = NUMBER_OF_SECTIONS
 
-    fun setLectures(lectures: List<Lecture>) {
-        this.lectures = lectures
+    fun setLectures(lectureItems: List<LectureItem>) {
+        this.lectureItems = lectureItems
         notifyItemChanged(LECTURES)
     }
 
-    fun setAvailableCarParks(carparks: List<CarPark>) {
-        this.carParks = carparks
+    fun setAvailableCarParks(carparks: List<CarParkItem>) {
+        this.carParkItems = carparks
         notifyItemChanged(CARPARKS)
     }
 
-    fun setShuttleBuses(shuttleBuses: List<ShuttleBus>) {
-        this.shuttleBuses = shuttleBuses
+    fun setShuttleBuses(shuttleBusItems: List<ShuttleBusItem>) {
+        this.shuttleBusItems = shuttleBusItems
         notifyItemChanged(SHUTTLEBUS)
     }
 
@@ -108,24 +108,24 @@ class ProfileAdapter :
     ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutLectureGroupBinding.bind(view)
 
-        fun bind(lectures: List<Lecture>) {
+        fun bind(lectureItems: List<LectureItem>) {
             binding.lectureListContainer.apply {
-                lectures.forEachIndexed { index, lecture ->
+                lectureItems.forEachIndexed { index, lecture ->
                     addViewByIndex(index) { createLectureView(lecture) }
                 }
             }
         }
 
-        private fun createLectureView(lecture: Lecture): View {
+        private fun createLectureView(lectureItem: LectureItem): View {
             val lectureView =
                 LayoutInflater.from(view.context).inflate(R.layout.layout_lecture_info, null)
             val binding = LayoutLectureInfoBinding.bind(lectureView)
 
-            binding.startTime.text = lecture.fromTime
-            binding.endTime.text = lecture.toTime
-            binding.unitName.text = lecture.name
-            binding.lecturerName.text = lecture.lecturer
-            binding.campusName.text = lecture.campusInfoString
+            binding.startTime.text = lectureItem.fromTime
+            binding.endTime.text = lectureItem.toTime
+            binding.unitName.text = lectureItem.name
+            binding.lecturerName.text = lectureItem.lecturer
+            binding.campusName.text = lectureItem.campusInfoString
 
             return lectureView
         }
@@ -140,7 +140,7 @@ class ProfileAdapter :
     ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutAvailableCarparkBinding.bind(view)
 
-        fun bind(carparks: List<CarPark>) {
+        fun bind(carparks: List<CarParkItem>) {
             binding.carparkListContainer.apply {
                 carparks.forEachIndexed { index, carPark ->
                     addViewByIndex(index) { createCarparkView(carPark) }
@@ -148,7 +148,7 @@ class ProfileAdapter :
             }
         }
 
-        private fun createCarparkView(carpark: CarPark): View {
+        private fun createCarparkView(carpark: CarParkItem): View {
             val carParkView =
                 LayoutInflater.from(view.context).inflate(R.layout.view_available_car_park, null)
             val binding = ViewAvailableCarParkBinding.bind(carParkView)
@@ -167,9 +167,9 @@ class ProfileAdapter :
     ) : RecyclerView.ViewHolder(view), CleanableViewGroup {
         private val binding = LayoutShuttleBusesBinding.bind(view)
 
-        fun bind(buses: List<ShuttleBus>) {
+        fun bind(busItems: List<ShuttleBusItem>) {
             binding.schedulesContainer.apply {
-                buses.forEachIndexed { index, shuttleBus ->
+                busItems.forEachIndexed { index, shuttleBus ->
                     addViewByIndex(index) {
                         createCarparkView(shuttleBus)
                     }
@@ -177,7 +177,7 @@ class ProfileAdapter :
             }
         }
 
-        private fun createCarparkView(buses: ShuttleBus): View {
+        private fun createCarparkView(buses: ShuttleBusItem): View {
             val view =
                 LayoutInflater.from(view.context).inflate(R.layout.view_shuttle_bus, null)
             val binding = ViewShuttleBusBinding.bind(view)

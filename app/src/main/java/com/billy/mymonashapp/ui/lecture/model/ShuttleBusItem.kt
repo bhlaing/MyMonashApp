@@ -1,6 +1,6 @@
-package com.billy.mymonashapp.ui.profile.model
+package com.billy.mymonashapp.ui.lecture.model
 
-class ShuttleBus(
+class ShuttleBusItem(
     val from: String,
     val to: String,
     val duration: String

@@ -49,6 +49,4 @@ dependencies {
     deps.firebase()
     deps.coroutines()
     deps.dependencyInjection()
-    deps.thirdPartyUi()
-
 }

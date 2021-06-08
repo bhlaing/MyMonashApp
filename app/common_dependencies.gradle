@@ -48,12 +48,6 @@ ext {
     // dependency injection
     hilt_android_version = "2.35"
     androidx_hilt_lifecycle_viewmodel_version = "1.0.0-alpha02"
-
-    // third party login
-    facebook_sdk_version = "5.15.3"
-
-    // third party ui
-    picasso_version = '2.71828'
 }
 
 ext.deps = [:]
@@ -128,13 +122,6 @@ ext.deps.logging = dependencyGroup {
     implementation "com.jakewharton.timber:timber:$timber_version"
 }
 
-ext.deps.thirdPartyLogin = dependencyGroup {
-    implementation "com.facebook.android:facebook-android-sdk:$facebook_sdk_version"
-}
-
-ext.deps.thirdPartyUi = dependencyGroup {
-    implementation "com.squareup.picasso:picasso:$picasso_version"
-}
 
 def dependencyGroup(Closure closure) {
     closure.delegate = dependencies

@@ -3,21 +3,21 @@ package com.billy.mymonashapp.ui
 import com.billy.mymonashapp.BaseCoroutinesTest
 import com.billy.mymonashapp.data.carpark.buildAvailableCarParks
 import com.billy.mymonashapp.data.carpark.buildCarPark
-import com.billy.mymonashapp.domain.builders.buildLecture
+import com.billy.mymonashapp.data.lecture.buildLecture
 import com.billy.mymonashapp.domain.builders.buildShuttleBus
-import com.billy.mymonashapp.domain.builders.buildStudentProfile
+import com.billy.mymonashapp.data.lecture.buildStudentLecture
 import com.billy.mymonashapp.domain.builders.buildShuttleBusSchedule
 import com.billy.mymonashapp.domain.carpark.AvailableCarParks
 import com.billy.mymonashapp.domain.carpark.mapToAvailableCarParks
 import com.billy.mymonashapp.domain.carpark.observer.ObserveAvailableCarParks
-import com.billy.mymonashapp.domain.profile.StudentProfile
-import com.billy.mymonashapp.domain.profile.mapToStudentProfile
-import com.billy.mymonashapp.domain.profile.observer.ObserveStudentProfile
+import com.billy.mymonashapp.domain.lecture.StudentLecture
+import com.billy.mymonashapp.domain.lecture.mapToStudentProfile
+import com.billy.mymonashapp.domain.lecture.observer.ObserveStudentLectures
 import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.mapToShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.observer.ObserveShuttleBusesSchedule
 import com.billy.mymonashapp.getOrAwaitValue
-import com.billy.mymonashapp.ui.profile.ProfileViewModel
+import com.billy.mymonashapp.ui.lecture.ProfileViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
@@ -33,7 +33,7 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
     private lateinit var profileViewModel: ProfileViewModel
 
     @Mock
-    private lateinit var observeStudentProfile: ObserveStudentProfile
+    private lateinit var observeStudentLectures: ObserveStudentLectures
 
     @Mock
     private lateinit var observeShuttleBusSchedule: ObserveShuttleBusesSchedule
@@ -41,7 +41,7 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
     @Mock
     private lateinit var observeAvailableCarParks: ObserveAvailableCarParks
 
-    private lateinit var mockProfile: StudentProfile
+    private lateinit var mockLecture: StudentLecture
     private lateinit var mockBuses: ShuttleBusSchedule
     private lateinit var mockCarparks: AvailableCarParks
 
@@ -50,18 +50,18 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
         super.setUp()
 
         // reset each of these to default to avoid coupling between tests
-        mockProfile = mapToStudentProfile(buildStudentProfile())
+        mockLecture = mapToStudentProfile(buildStudentLecture())
         mockBuses = mapToShuttleBusSchedule(buildShuttleBusSchedule())
         mockCarparks = mapToAvailableCarParks(buildAvailableCarParks())
 
         runBlocking {
-            whenever(observeStudentProfile.invoke(Unit)).thenReturn(flow { emit(mockProfile) })
+            whenever(observeStudentLectures.invoke(Unit)).thenReturn(flow { emit(mockLecture) })
             whenever(observeShuttleBusSchedule.invoke(Unit)).thenReturn(flow { emit(mockBuses) })
             whenever(observeAvailableCarParks.invoke(Unit)).thenReturn(flow { emit(mockCarparks) })
         }
 
         profileViewModel = ProfileViewModel(
-            observeStudentProfile,
+            observeStudentLectures,
             observeShuttleBusSchedule,
             observeAvailableCarParks
         )
@@ -71,11 +71,11 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
 
     @Test
     fun `given a user profile, when valid lectures present, then display lectures count according to randomised number`() {
-        mockProfile = mapToStudentProfile(buildStudentProfile())
+        mockLecture = mapToStudentProfile(buildStudentLecture())
 
         runBlocking {
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             )
@@ -90,8 +90,8 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
     @Test
     fun `given a user profile, when valid lectures present, then display lectures with correct information`() {
         runBlocking {
-            mockProfile = mapToStudentProfile(
-                buildStudentProfile(
+            mockLecture = mapToStudentProfile(
+                buildStudentLecture(
                     listOf(
                         buildLecture("1", "11", "name1", "lecture1", "info1"),
                         buildLecture("2", "22", "name2", "lecturer2", "info2"),
@@ -100,10 +100,10 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
                 )
             )
 
-            whenever(observeStudentProfile.invoke(Unit)).thenReturn(flow { emit(mockProfile) })
+            whenever(observeStudentLectures.invoke(Unit)).thenReturn(flow { emit(mockLecture) })
 
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             ).apply { lectureCount = 2 }
@@ -140,12 +140,12 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
             whenever(observeAvailableCarParks.invoke(Unit)).thenReturn(flow { emit(mockCarparks) })
 
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             ).apply { carParkCount = 3 }
 
-            with(profileViewModel.availableCarParks.getOrAwaitValue()) {
+            with(profileViewModel.availableCarParksItem.getOrAwaitValue()) {
                 assertTrue(3 == size)
             }
         }
@@ -167,12 +167,12 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
             whenever(observeAvailableCarParks.invoke(Unit)).thenReturn(flow { emit(mockCarparks) })
 
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             ).apply { carParkCount = 3 }
 
-            with(profileViewModel.availableCarParks.getOrAwaitValue()) {
+            with(profileViewModel.availableCarParksItem.getOrAwaitValue()) {
                 assertEquals("name", first().carparkName)
                 assertEquals("11", first().availableSpaces)
 
@@ -201,12 +201,12 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
             whenever(observeShuttleBusSchedule.invoke(Unit)).thenReturn(flow { emit(mockBuses) })
 
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             ).apply { busCount = 1 }
 
-            with(profileViewModel.availableCarParks.getOrAwaitValue()) {
+            with(profileViewModel.availableCarParksItem.getOrAwaitValue()) {
                 assertTrue(1 == size)
             }
         }
@@ -228,12 +228,12 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
             whenever(observeShuttleBusSchedule.invoke(Unit)).thenReturn(flow { emit(mockBuses) })
 
             profileViewModel = ProfileViewModel(
-                observeStudentProfile,
+                observeStudentLectures,
                 observeShuttleBusSchedule,
                 observeAvailableCarParks
             ).apply { busCount = 1 }
 
-            with(profileViewModel.shuttleBusSchedule.getOrAwaitValue()) {
+            with(profileViewModel.shuttleBusItemSchedule.getOrAwaitValue()) {
                 assertEquals("Clay", first().from)
                 assertEquals("ton", first().to)
                 assertEquals("21 mins", first().duration)
