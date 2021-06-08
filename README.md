@@ -97,7 +97,7 @@ Exceptions are omitted and treated as empty responses due to time-constraint. Su
    - Http/Firebase exceptions should be mapped to domain exceptions. They can be grouped into critical and non-critical exceptions
    - A session manager or login manager can be injected into _ResultInteractor_ to handle critical exceptions and logs users out
    - Non-critical exceptions can be forwarded to the view to give user feedback
-<br/>
+
 **Uses of coroutine experimental APIs**
 Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
 <br/>

@@ -118,8 +118,8 @@ class ProfileAdapter :
 
         private fun createLectureView(lectureItem: LectureItem): View {
             val lectureView =
-                LayoutInflater.from(view.context).inflate(R.layout.layout_lecture_info, null)
-            val binding = LayoutLectureInfoBinding.bind(lectureView)
+                LayoutInflater.from(view.context).inflate(R.layout.view_lecture_info, null)
+            val binding = ViewLectureInfoBinding.bind(lectureView)
 
             binding.startTime.text = lectureItem.fromTime
             binding.endTime.text = lectureItem.toTime

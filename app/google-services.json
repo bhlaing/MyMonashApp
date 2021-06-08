@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "477264861469",
+    "project_id": "monash-project-c17c5",
+    "storage_bucket": "monash-project-c17c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477264861469:android:89de97fc28bd8b3a2929f4",
+        "android_client_info": {
+          "package_name": "com.billy.mymonashapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477264861469-7rhfhfgiusm3ac242r5emci7q8i472l0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIcbYg49py5tebK4xHd1LG0TiM0Ok1Ee4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477264861469-7rhfhfgiusm3ac242r5emci7q8i472l0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

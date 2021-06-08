@@ -30,8 +30,8 @@
 
     <View style="@style/Divider.Vertical"
         android:id="@+id/vertical_seperator"
-        android:layout_height="100dp"
-        android:layout_marginStart="12dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="12dp"
         android:layout_toEndOf="@id/period_holder"/>
 
