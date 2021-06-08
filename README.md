@@ -13,7 +13,7 @@
 - [Compromises and implementation decisions](#compromises-and-implementation-decisions)
 - [Tests](#tests)
 - [CI/CD](#ci/cd)
-- [Acknowledgement](#ackowledgement)
+- [Acknowledgement](#acknowledgement)
 
 
 ## Overview
@@ -101,12 +101,12 @@ All styles can be found under themes.xml
 ## Tests
 100% unit-tests for Domain mappers and ViewModel
 
-### CI/CD
+## CI/CD
 Please see _.github/workflows/ci_pr_build.yml_ for implementation
 <br />
 [Failed CI to as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
 
-### Acknowledgement 
+## Acknowledgement 
 I would like to thank PK Heng, Linden Darling and Damien Smith from Monash University for providing me with this opportunity.
 
 
