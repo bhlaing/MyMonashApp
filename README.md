@@ -43,7 +43,7 @@ It further reduce coupling between the View and it's companion in android develo
 
 **Clean architecture and benefits**
 <br/><br/>
-Clean architecture allows us to further decouple business logics from android framework. The use of domain usecases/observer(in this case)
+Clean architecture allows us to decouple business logics from android framework. The use of domain usecases/observer(in this case)
 meaning each business logic is isolated and tested seperately from view. This also allows scaling into modular architecture by
 simplay extracting domain and data layer into feature modules <br/>
 Each feature also holds it's own \_di module to allow easy refactor/removal <br/> 
