@@ -10,7 +10,6 @@ import org.junit.Test
 
 class StudentProfileMapperTest : BaseTest() {
     private val studentProfileDO = buildStudentProfile(
-        name = "Monash peep",
         listOf(
             buildLecture(
                 fromTime = "8:00 AM",
@@ -30,13 +29,6 @@ class StudentProfileMapperTest : BaseTest() {
     )
 
     @Test
-    fun `given a student profile data , when mapping, then maps to student profile name`() {
-        with(mapToStudentProfile(studentProfileDO)) {
-            assertEquals("Monash peep", this.name)
-        }
-    }
-
-    @Test
     fun `given a student profile data with lectures, when mapping, then maps lectures correctly`() {
         val profile = mapToStudentProfile(studentProfileDO)
 
@@ -54,7 +46,7 @@ class StudentProfileMapperTest : BaseTest() {
             assertEquals("11:00 AM", toTime)
             assertEquals("FIT1031 Lecture 02", name)
             assertEquals("Ray Kurzweil", lecturer)
-            assertEquals("S4, 13 College Walk, Clayton", campusInfoString)
+            assertEquals("S4, 13 Tafe Walk, Clayton", campusInfoString)
         }
     }
 }

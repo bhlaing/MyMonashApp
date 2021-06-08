@@ -10,11 +10,13 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 
+@ExperimentalCoroutinesApi
 open class BaseCoroutinesTest: BaseTest() {
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
     private val testDispatcher = TestCoroutineDispatcher()
+
 
     @Before
     override fun setUp() {
@@ -29,7 +31,6 @@ open class BaseCoroutinesTest: BaseTest() {
         Dispatchers.setMain(testDispatcher)
     }
 
-    @ExperimentalCoroutinesApi
     @After
     fun tearDown() {
         // Resets state of the [Dispatchers.Main] to the original main dispatcher.

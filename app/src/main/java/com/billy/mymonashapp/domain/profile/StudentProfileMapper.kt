@@ -3,8 +3,7 @@ package com.billy.mymonashapp.domain.profile
 import com.billy.mymonashapp.data.pofile.StudentProfileDO
 
 fun mapToStudentProfile(profileDO: StudentProfileDO) =
-    StudentProfile(profileDO.name,
-        profileDO.lectures.map {
+    StudentProfile(profileDO.lectures.map {
             StudentProfile.Lecture(
                 it.fromTime,
                 it.toTime,

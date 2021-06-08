@@ -12,9 +12,7 @@ import com.billy.mymonashapp.BaseActivity
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.observeNonNull
 import com.billy.mymonashapp.databinding.ActivityProfileBinding
-import com.billy.mymonashapp.domain.carpark.AvailableCarParks
-import com.billy.mymonashapp.domain.profile.StudentProfile
-import com.billy.mymonashapp.domain.shuttlebus.ShuttleBusSchedule
+import com.billy.mymonashapp.databinding.ViewUserInfoBinding
 import com.billy.mymonashapp.ui.profile.adapter.ProfileAdapter
 import com.billy.mymonashapp.ui.profile.model.CarPark
 import com.billy.mymonashapp.ui.profile.model.Lecture
@@ -26,11 +24,14 @@ class ProfileActivity : BaseActivity() {
     private val viewModel: ProfileViewModel by viewModels()
     private lateinit var bindings: ActivityProfileBinding
     private lateinit var profileAdapter: ProfileAdapter
+    private lateinit var titleBindings: ViewUserInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         bindings = ActivityProfileBinding.inflate(layoutInflater)
+        titleBindings = ViewUserInfoBinding.inflate(layoutInflater)
+
         setContentView(bindings.root)
 
         setCustomActionBar()
@@ -52,7 +53,7 @@ class ProfileActivity : BaseActivity() {
         randomiseRows()
 
         observeNonNull(viewModel.loading, ::onLoadingStateChanged)
-        observeNonNull(viewModel.userProfile, ::onUserProfileStateChange)
+        observeNonNull(viewModel.availableLectures, ::onUserProfileStateChange)
         observeNonNull(viewModel.availableCarParks, ::onCarParkAvailabilityChange)
         observeNonNull(viewModel.shuttleBusSchedule, ::onShuttleBusScheduleChange)
     }
@@ -97,7 +98,7 @@ class ProfileActivity : BaseActivity() {
             customTitle.findViewById<TextView>(R.id.date_week).text =
                 getString(R.string.place_holder_date_week)
 
-            customView = customTitle
+            customView = titleBindings.root
         }
     }
 }

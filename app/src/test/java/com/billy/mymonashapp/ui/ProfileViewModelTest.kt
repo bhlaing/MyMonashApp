@@ -18,6 +18,7 @@ import com.billy.mymonashapp.domain.shuttlebus.mapToShuttleBusSchedule
 import com.billy.mymonashapp.domain.shuttlebus.observer.ObserveShuttleBusesSchedule
 import com.billy.mymonashapp.getOrAwaitValue
 import com.billy.mymonashapp.ui.profile.ProfileViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -26,6 +27,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 
+@ExperimentalCoroutinesApi
 class ProfileViewModelTest : BaseCoroutinesTest() {
 
     private lateinit var profileViewModel: ProfileViewModel
@@ -79,7 +81,7 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
             )
             profileViewModel.lectureCount = 2
 
-            with(profileViewModel.userProfile.getOrAwaitValue()) {
+            with(profileViewModel.availableLectures.getOrAwaitValue()) {
                 assertTrue(2 == size)
             }
         }
@@ -90,7 +92,6 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
         runBlocking {
             mockProfile = mapToStudentProfile(
                 buildStudentProfile(
-                    "",
                     listOf(
                         buildLecture("1", "11", "name1", "lecture1", "info1"),
                         buildLecture("2", "22", "name2", "lecturer2", "info2"),
@@ -107,7 +108,7 @@ class ProfileViewModelTest : BaseCoroutinesTest() {
                 observeAvailableCarParks
             ).apply { lectureCount = 2 }
 
-            with(profileViewModel.userProfile.getOrAwaitValue()) {
+            with(profileViewModel.availableLectures.getOrAwaitValue()) {
                 assertEquals("1", first().fromTime)
                 assertEquals("11", first().toTime)
                 assertEquals("name1", first().name)

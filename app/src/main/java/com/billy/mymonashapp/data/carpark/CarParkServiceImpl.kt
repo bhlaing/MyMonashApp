@@ -5,13 +5,10 @@ import com.billy.mymonashapp.domain.carpark.AvailableCarParks
 import com.billy.mymonashapp.domain.carpark.mapToAvailableCarParks
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class CarParkServiceImpl @Inject constructor(): CarParkService {
-    private val cloudFirestoreDb = FirebaseFirestore.getInstance()
+class CarParkServiceImpl @Inject constructor(private val cloudFirestoreDb: FirebaseFirestore): CarParkService {
     private companion object {
         const val CARPARK_COLLECTION = "parking"
     }

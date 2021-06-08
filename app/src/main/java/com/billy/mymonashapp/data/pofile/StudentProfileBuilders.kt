@@ -3,9 +3,8 @@ package com.billy.mymonashapp.domain.builders
 import com.billy.mymonashapp.data.pofile.StudentProfileDO
 
 fun buildStudentProfile(
-    name: String = "Kier",
     lectures: List<StudentProfileDO.LectureDO> = listOf(buildLecture(), buildLecture())
-) = StudentProfileDO(name, lectures)
+) = StudentProfileDO(lectures)
 
 fun buildLecture(
     fromTime: String = "8:00 AM",

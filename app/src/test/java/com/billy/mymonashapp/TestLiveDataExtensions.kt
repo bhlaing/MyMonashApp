@@ -30,12 +30,3 @@ timeUnit: TimeUnit = TimeUnit.SECONDS
     @Suppress("UNCHECKED_CAST")
     return data as T
 }
-
-object MockitoHelper {
-    fun <T> anyObject(): T {
-        Mockito.any<T>()
-        return uninitialized()
-    }
-    @Suppress("UNCHECKED_CAST")
-    fun <T> uninitialized(): T =  null as T
-}

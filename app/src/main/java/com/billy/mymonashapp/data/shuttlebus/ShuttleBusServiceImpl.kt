@@ -8,8 +8,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class ShuttleBusServiceImpl @Inject constructor(): ShuttleBusService{
-    private val cloudFirestoreDb = FirebaseFirestore.getInstance()
+class ShuttleBusServiceImpl @Inject constructor(private val cloudFirestoreDb: FirebaseFirestore): ShuttleBusService{
     private companion object {
         const val BUS_SCHEDULES_COLLECTION = "bus_schedules"
     }

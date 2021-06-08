@@ -34,7 +34,7 @@ class ProfileViewModel @Inject constructor(
 
     // We can write a function to do randomising instead of repeating the code
     // I've decided to leave it due to time constraint
-    val userProfile: LiveData<List<Lecture>> =
+    val availableLectures: LiveData<List<Lecture>> =
         liveData {
             observeStudentProfile(Unit).collect { profile ->
                 val lectures = mutableListOf<Lecture>()

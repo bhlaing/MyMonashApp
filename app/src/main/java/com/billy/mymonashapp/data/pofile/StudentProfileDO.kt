@@ -1,7 +1,6 @@
 package com.billy.mymonashapp.data.pofile
 
 class StudentProfileDO(
-    val name: String,
     val lectures: List<LectureDO>
 ) {
     class LectureDO(

@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class StudentServiceImpl @Inject constructor(): StudentService {
+    /**
+     * A hardcode flow with delay 1 second to simulate asynchronous flow.
+     * Please see CarParkService or ShuttleBusService for FirebaseFirestore implementation
+     */
     override fun observeStudentProfileByWeek(): Flow<StudentProfile?> =
         try {
             flow {
