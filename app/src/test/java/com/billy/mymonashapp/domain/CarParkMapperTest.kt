@@ -21,7 +21,7 @@ class CarParkMapperTest : BaseTest() {
             assertEquals("a", this.first().carparkName)
             assertEquals("1", this.first().availableSpaces)
 
-            assertEquals("b", this.component2().carparkName)
+            assertEquals("a", this.component2().carparkName)
             assertEquals("2", this.component2().availableSpaces)
         }
     }
