@@ -1,4 +1,5 @@
 # MyMonashApp
+![](demo.gif)
 ## Table of content
 - [Overview](#overview)
 - [Requirements](#requirements)
