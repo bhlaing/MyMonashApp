@@ -6,13 +6,10 @@
 - [Technologies and Libraries](#technologies-and-libraries)
 - [Architecture and Design decisions](#architecture-and-design-decisions)
 - [Standards](#standards)
-  - Themes/Styles
-  - Model naming
-  - Layout naming
-  - Drawable resource naming
 - [Implementation decisions and compromises](#implementation-decisions-and-compromises)
 - [Tests](#tests)
 - [CI/CD](#continueous-integration-and-delivery)
+- [Caching and Data-sync](#caching-and-data-sync)
 - [Acknowledgement](#acknowledgement)
 
 
@@ -34,7 +31,7 @@ App uses 100% kotlin, Architecture components, Coroutines, FirebaseFirestore, Hi
 ## Architecture and Design decisions
 My monash app is implemented in MVVM pattern in conjunction with clean architecture
 <br/><br/>
-**MVVM design pattern and benefits?**
+**MVVM design pattern and benefits**
 <br/><br/>
 MVVM is an alternative design pattern to traditional design patterns such as MVP, MVC in android development.
 Unlike MVP or MVC, MVVM allows <b>1 to many </b> relationshop betweeen the View and ViewModel.
@@ -85,25 +82,39 @@ All styles can be found under themes.xml
 - A custom theme _Theme.DropShadow_ is added for reusability
 
 ### Compromises
-
 **Graphics**
 - Darker background shadow as supposed to the one in the requirement. Current shadow uses readily available _@android:drawable/dialog_holo_light_frame_
-  This is due to time-constraint and focus on implementation. Ideally we may want to create 9patch image for the shadow and replace current image. 
-- Slight color different for TODAY box at the top. Also assumed background as such should be provided by designers ESPECIALLY when gradients are involved.
+  This is due to time-constraint and focus on implementation. Ideally we may want to create 9patch image for the shadow and replace current image
+- Slight color different for TODAY box at the top. Also assumed background as such should be provided by designers ESPECIALLY when gradients are involved
   <br />
 **Data**
-- User profile/Lectures is hard-coded to reduce overhead. Firebase implementation has been demonstrated by Carpark and Shuttle bus services to provide evidence of asynchronous data retrieval. 
+- User profile/Lectures is hard-coded to reduce overhead. Firebase implementation has been demonstrated by Carpark and Shuttle bus services to provide evidence of asynchronous data retrieval
+
+**Exception handling**
+
+ Exceptions are omitted and treated as empty responses due to time-constraint. Suggested approach for exception handling
+    - Http/Firebase exceptions should be mapped to domain exceptions. They can be grouped into critical and non-critical exceptions
+    - A session manager or login manager can be injected into _ResultInteractor_ to handle critical exceptions and logs users out
+    - Non-critical exceptions can be forwarded to the view to give user feedback
+<br />
 **Tests**
 - Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for expresso 
-
 (It was quite a lot of code to write :D)
 ## Tests
-100% unit-tests for Domain mappers and ViewModel
+- 100% unit-tests for Domain mappers and ViewModel
+- Accessibility tested for talkback and large fonts
 
 ## Continuous integration and delivery
 Please see _.github/workflows/ci_pr_build.yml_ for implementation
 <br />
 [Failed CI as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
+
+
+## Caching and Data sync
+**Persistency**
+- Offline capability enabled though firebase firestore db
+- Cache size set to UNLIMITED for demoing pruposes. Default size is 100MB
+- Real-time data sync also enabled and utilised kotlin flow to deliver data continuously to UI
 
 ## Acknowledgement 
 I would like to thank PK Heng, Linden Darling and Damien Smith from Monash University for the opportunity.
