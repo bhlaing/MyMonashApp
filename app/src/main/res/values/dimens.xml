@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="deco_item_common_padding">2dp</dimen>
+    <dimen name="list_section_common_margin">12dp</dimen>
+    <dimen name="header_common_inset">4dp</dimen>
 </resources>

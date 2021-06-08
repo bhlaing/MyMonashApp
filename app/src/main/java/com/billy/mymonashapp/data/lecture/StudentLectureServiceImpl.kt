@@ -21,5 +21,4 @@ class StudentLectureServiceImpl @Inject constructor(): StudentLectureService {
         } catch (ex: Exception) {
             flow { emit(null) }
         }
-
 }

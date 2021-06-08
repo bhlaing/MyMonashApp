@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/list_section_common_margin"
     android:orientation="vertical">
 
     <TextView
         style="@style/MonashApp.Text.Captions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/deco_item_common_padding"
+        android:layout_marginStart="@dimen/header_common_inset"
+        android:padding="@dimen/header_common_inset"
         android:text="@string/shuttle_bus" />
 
     <LinearLayout

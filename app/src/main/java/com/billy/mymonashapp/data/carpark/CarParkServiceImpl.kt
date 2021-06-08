@@ -21,5 +21,4 @@ class CarParkServiceImpl @Inject constructor(private val cloudFirestoreDb: Fireb
             mapToAvailableCarParks(AvailableCarParksDO(buses))
         }
     }
-
 }
