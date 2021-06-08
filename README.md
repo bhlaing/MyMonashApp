@@ -4,13 +4,13 @@
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Technologies and Libraries](#technologies-and-libraries)
-- [Architecture and Design decisions](#architecture-and-design-decisions)
+- [Technologies and libraries](#technologies-and-libraries)
+- [Architecture and design decisions](#architecture-and-design-decisions)
 - [Standards](#standards)
 - [Implementation decisions and compromises](#implementation-decisions-and-compromises)
 - [Tests](#tests)
 - [CI/CD](#continueous-integration-and-delivery)
-- [Caching and Data-sync](#caching-and-data-sync)
+- [Caching and data-sync](#caching-and-data-sync)
 - [Dependencies management](#dependencies-management)
 - [Acknowledgement](#acknowledgement)
 
@@ -27,7 +27,7 @@ and parking space information.
 Launching - Simply launch the app by tapping on the app icon <br />
 Refreshing - Kill and Launch 
 
-## Technologies and Libraries 
+## Technologies and libraries 
 App uses 100% kotlin, Architecture components, Coroutines, FirebaseFirestore, Hilt, ViewModel, LiveData, Timber
 
 ## Architecture and Design decisions
@@ -71,7 +71,7 @@ All styles can be found under themes.xml
 - Icons are surfixed with ic_xxx
 - Background are surfixed with background_xx
 
-## Implementation decisions and Compromises 
+## Implementation decisions and compromises 
 ### Implementation decisions 
 
 **Asynchronous flow**
@@ -116,7 +116,7 @@ Please see _.github/workflows/ci_pr_build.yml_ for implementation
 [Failed CI as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
 
 
-## Caching and Data sync
+## Caching and data sync
 **Persistency**
 - Offline capability enabled though Firebase Firestore db
 - Cache size set to UNLIMITED for demoing pruposes. Default size is 100MB
