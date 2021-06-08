@@ -39,7 +39,7 @@ My monash app is implemented in MVVM pattern in conjunction with clean architect
 MVVM is an alternative design pattern to traditional design patterns such as MVP, MVC in android development.
 Unlike MVP or MVC, MVVM allows <b>1 to many </b> relationshop betweeen the View and ViewModel.
 This paradigm in conjunction with built-in support for Architecture components and HILT allows us to 
-implement observable pattern utalising LiveData to stream-line development process.
+implement observable pattern utilising LiveData to stream-line development process.
 It further reduce coupling between the View and it's companion in android development (in this case ViewModel)
 
 **Clean architecture and benefits**
