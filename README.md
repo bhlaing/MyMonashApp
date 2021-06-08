@@ -104,7 +104,7 @@ All styles can be found under themes.xml
 ## CI/CD
 Please see _.github/workflows/ci_pr_build.yml_ for implementation
 <br />
-[Failed CI to as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
+[Failed CI as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
 
 ## Acknowledgement 
 I would like to thank PK Heng, Linden Darling and Damien Smith from Monash University for providing me with this opportunity.
