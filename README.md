@@ -11,6 +11,7 @@
 - [Tests](#tests)
 - [CI/CD](#continueous-integration-and-delivery)
 - [Caching and Data-sync](#caching-and-data-sync)
+- [Dependencies management](#dependencies-management)
 - [Acknowledgement](#acknowledgement)
 
 
@@ -103,7 +104,7 @@ Exceptions are omitted and treated as empty responses due to time-constraint. Su
 Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
 
 **Testing**
-- Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for expresso 
+- Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for espresso 
 
 ## Tests
 - 100% unit-tests for Domain mappers and ViewModel
@@ -120,6 +121,9 @@ Please see _.github/workflows/ci_pr_build.yml_ for implementation
 - Offline capability enabled though Firebase Firestore db
 - Cache size set to UNLIMITED for demoing pruposes. Default size is 100MB
 - Real-time data sync also enabled and utilised kotlin flow to deliver data continuously to UI
+
+## Dependencies management
+Dependencies and versions are managed through _**common_dependencies.gradle**_ to allow scaling and reusability
 
 ## Acknowledgement 
 I would like to thank PK Heng, Linden Darling and Damien Smith from Monash University for the opportunity.
