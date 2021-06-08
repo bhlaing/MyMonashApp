@@ -1,4 +1,4 @@
-# MyMonashApp
+# Monash University Coding Challenge
 ![](demo.gif)
 ## Table of content
 - [Overview](#overview)
