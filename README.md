@@ -92,19 +92,18 @@ All styles can be found under themes.xml
 - User profile/Lectures is hard-coded to reduce overhead. Firebase implementation has been demonstrated by Carpark and Shuttle bus services to provide evidence of asynchronous data retrieval
 <br/>
 
-**Exception handling**
+**Exception handling**<br/><br/>
 Exceptions are omitted and treated as empty responses due to time-constraint. Suggested approach for exception handling
    - Http/Firebase exceptions should be mapped to domain exceptions. They can be grouped into critical and non-critical exceptions
    - A session manager or login manager can be injected into _ResultInteractor_ to handle critical exceptions and logs users out
    - Non-critical exceptions can be forwarded to the view to give user feedback
 
-**Uses of coroutine experimental APIs**
+**Uses of coroutine experimental APIs**<br/><br/>
 Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
-<br/>
 
 **Testing**
 - Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for expresso 
-<br/>
+
 ## Tests
 - 100% unit-tests for Domain mappers and ViewModel
 - Accessibility tested for talkback and large fonts
@@ -117,7 +116,7 @@ Please see _.github/workflows/ci_pr_build.yml_ for implementation
 
 ## Caching and Data sync
 **Persistency**
-- Offline capability enabled though firebase firestore db
+- Offline capability enabled though Firebase Firestore db
 - Cache size set to UNLIMITED for demoing pruposes. Default size is 100MB
 - Real-time data sync also enabled and utilised kotlin flow to deliver data continuously to UI
 
