@@ -111,7 +111,7 @@ Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_
 - Accessibility tested for talkback and large fonts. All fonts and graphics scale and adjust according to device display settings correctly
 
 ## Continuous integration and delivery
-Please see _.github/workflows/ci_pr_build.yml_ for implementation
+Please see _.github/workflows/ci_pr_build.yml_ for git CI implementation
 <br />
 [Failed CI as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
 
