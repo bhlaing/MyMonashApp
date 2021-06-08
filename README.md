@@ -10,7 +10,7 @@
   - Model naming
   - Layout naming
   - Drawable resource naming
-- [Implementation decisions and compromises](#compromises-and-implementation-decisions)
+- [Implementation decisions and compromises](#implementation-decisions-and-compromises)
 - [Tests](#tests)
 - [CI/CD](#continueous-integration-and-delivery)
 - [Acknowledgement](#acknowledgement)
