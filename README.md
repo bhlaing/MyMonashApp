@@ -89,18 +89,19 @@ All styles can be found under themes.xml
   <br/>
 **Data**
 - User profile/Lectures is hard-coded to reduce overhead. Firebase implementation has been demonstrated by Carpark and Shuttle bus services to provide evidence of asynchronous data retrieval
-
+<br/>
 **Exception handling**
 <br/>
 Exceptions are omitted and treated as empty responses due to time-constraint. Suggested approach for exception handling
    - Http/Firebase exceptions should be mapped to domain exceptions. They can be grouped into critical and non-critical exceptions
    - A session manager or login manager can be injected into _ResultInteractor_ to handle critical exceptions and logs users out
    - Non-critical exceptions can be forwarded to the view to give user feedback
-    
+    <br/>
 **Uses of coroutine experimental APIs**
-Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
-
 <br/>
+Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
+<br/>
+
 **Tests**
 - Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for expresso 
 (It was quite a lot of code to write :D)
