@@ -87,24 +87,24 @@ All styles can be found under themes.xml
   This is due to time-constraint and to focus on implementation. Ideally we may want to create 9patch image for the shadow and replace current image
 - Slight color different for TODAY box at the top. Also assumed background as such should be provided by designers ESPECIALLY when gradients are involved
   <br/>
+  
 **Data**
 - User profile/Lectures is hard-coded to reduce overhead. Firebase implementation has been demonstrated by Carpark and Shuttle bus services to provide evidence of asynchronous data retrieval
 <br/>
+
 **Exception handling**
-<br/>
 Exceptions are omitted and treated as empty responses due to time-constraint. Suggested approach for exception handling
    - Http/Firebase exceptions should be mapped to domain exceptions. They can be grouped into critical and non-critical exceptions
    - A session manager or login manager can be injected into _ResultInteractor_ to handle critical exceptions and logs users out
    - Non-critical exceptions can be forwarded to the view to give user feedback
-    <br/>
-**Uses of coroutine experimental APIs**
 <br/>
+**Uses of coroutine experimental APIs**
 Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_ to accelerate development
 <br/>
 
-**Tests**
+**Testing**
 - Espresso tests considered out-of-scope as assessment criteria does not include them and also due to time-constraint. Consider Screen/Robot pattern for expresso 
-(It was quite a lot of code to write :D)
+<br/>
 ## Tests
 - 100% unit-tests for Domain mappers and ViewModel
 - Accessibility tested for talkback and large fonts

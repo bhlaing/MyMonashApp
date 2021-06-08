@@ -46,7 +46,7 @@ class ProfileViewModel @Inject constructor(
         }
 
     val shuttleBusItemSchedule: LiveData<List<ShuttleBusItem>> =
-        liveData {
+        liveData  {
             observeShuttleBusSchedule(Unit).collect { busSchedule ->
                 val buses = mutableListOf<ShuttleBusItem>()
                 busSchedule?.buses?.map { shuttleBus ->
@@ -60,7 +60,7 @@ class ProfileViewModel @Inject constructor(
         }
 
     val availableCarParksItem: LiveData<List<CarParkItem>> =
-        liveData {
+        liveData  {
             observeAvailableCarParks(Unit).collect { carParks ->
                 val carparks = mutableListOf<CarParkItem>()
                 carParks?.parkings?.map { carPark ->
