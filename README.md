@@ -9,7 +9,7 @@
 - [Standards](#standards)
 - [Implementation decisions and compromises](#implementation-decisions-and-compromises)
 - [Tests](#tests)
-- [CI/CD](#continueous-integration-and-delivery)
+- [CI/CD](#continuous-integration-and-delivery)
 - [Caching and data-sync](#caching-and-data-sync)
 - [Dependencies management](#dependencies-management)
 - [Acknowledgement](#acknowledgement)
