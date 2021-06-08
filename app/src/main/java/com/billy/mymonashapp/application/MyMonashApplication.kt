@@ -1,6 +1,7 @@
-package com.billy.mymonashapp
+package com.billy.mymonashapp.application
 
 import android.app.Application
+import com.billy.mymonashapp.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 

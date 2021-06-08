@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.billy.mymonashapp.BaseActivity
+import com.billy.mymonashapp.ui.BaseActivity
 import com.billy.mymonashapp.R
 import com.billy.mymonashapp.application.shared.observeNonNull
 import com.billy.mymonashapp.databinding.ActivityProfileBinding

@@ -4,7 +4,7 @@
     package="com.billy.mymonashapp">
 
     <application
-        android:name=".MyMonashApplication"
+        android:name=".application.MyMonashApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

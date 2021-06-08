@@ -1,7 +1,8 @@
-package com.billy.mymonashapp
+package com.billy.mymonashapp.ui
 
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import com.billy.mymonashapp.R
 
 open class BaseActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
