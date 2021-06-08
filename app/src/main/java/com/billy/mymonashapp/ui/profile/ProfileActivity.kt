@@ -27,27 +27,13 @@ class ProfileActivity : BaseActivity() {
     private lateinit var bindings: ActivityProfileBinding
     private lateinit var profileAdapter: ProfileAdapter
 
-    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         bindings = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(bindings.root)
 
-        supportActionBar?.apply {
-            elevation = 0.0f
-            displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-            val customTitle = layoutInflater.inflate(R.layout.view_user_info, null)
-            customTitle.findViewById<TextView>(R.id.student_name).text = getString(
-                R.string.profile_name, getString(
-                    R.string.place_holder_name
-                )
-            )
-            customTitle.findViewById<TextView>(R.id.date_week).text =
-                getString(R.string.place_holder_date_week)
-
-            customView = customTitle
-        }
+        setCustomActionBar()
         setUpStudentProfileView()
         setUpObservers()
     }
@@ -95,5 +81,23 @@ class ProfileActivity : BaseActivity() {
         viewModel.lectureCount = (0..2).random()
         viewModel.busCount = (0..2).random()
         viewModel.carParkCount = (0..2).random()
+    }
+
+    @SuppressLint("InflateParams")
+    private fun setCustomActionBar() {
+        supportActionBar?.apply {
+            elevation = 0.0f
+            displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+            val customTitle = layoutInflater.inflate(R.layout.view_user_info, null)
+            customTitle.findViewById<TextView>(R.id.student_name).text = getString(
+                R.string.profile_name, getString(
+                    R.string.place_holder_name
+                )
+            )
+            customTitle.findViewById<TextView>(R.id.date_week).text =
+                getString(R.string.place_holder_date_week)
+
+            customView = customTitle
+        }
     }
 }

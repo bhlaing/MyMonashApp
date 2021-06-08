@@ -1,8 +1,12 @@
-package com.billy.mymonashapp.data.shuttlebus
+package com.billy.mymonashapp.domain.builders
+
+import com.billy.mymonashapp.data.shuttlebus.ShuttleBusScheduleDO
 
 fun buildShuttleBusSchedule(
-    busSchedules: List<ShuttleBusScheduleDO.ShuttleBusDO> = listOf(buildShuttleBus(),
-        buildShuttleBus())
+    busSchedules: List<ShuttleBusScheduleDO.ShuttleBusDO> = listOf(
+        buildShuttleBus(),
+        buildShuttleBus()
+    )
 ) = ShuttleBusScheduleDO(busSchedules)
 
 fun buildShuttleBus(

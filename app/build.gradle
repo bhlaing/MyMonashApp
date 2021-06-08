@@ -39,8 +39,6 @@ android {
 }
 
 dependencies {
-
-    implementation 'com.google.firebase:firebase-firestore:23.0.1'
     deps.kotlin()
     deps.nativeAndroidUi()
     deps.lifecycle()

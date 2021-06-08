@@ -1,5 +1,6 @@
 package com.billy.mymonashapp.ui.profile.adapter
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -15,12 +16,12 @@ import com.billy.mymonashapp.ui.profile.model.CarPark
 import com.billy.mymonashapp.ui.profile.model.Lecture
 import com.billy.mymonashapp.ui.profile.model.ShuttleBus
 
-
 private const val NUMBER_OF_SECTIONS = 3
 private const val LECTURES = 0
 private const val CARPARKS = 1
 private const val SHUTTLEBUS = 2
 
+@SuppressLint("InflateParams")
 class ProfileAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var lectures: List<Lecture> = emptyList()

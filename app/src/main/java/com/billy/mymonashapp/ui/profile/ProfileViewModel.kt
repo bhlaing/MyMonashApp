@@ -36,10 +36,10 @@ class ProfileViewModel @Inject constructor(
     // I've decided to leave it due to time constraint
     val userProfile: LiveData<List<Lecture>> =
         liveData {
-            observeStudentProfile(8).collect { profile ->
+            observeStudentProfile(Unit).collect { profile ->
                 val lectures = mutableListOf<Lecture>()
-                profile?.lectures?.mapIndexed { index, lecture ->
-                    if (index <= lectureCount) {
+                profile?.lectures?.map { lecture ->
+                    if (lectures.size < lectureCount) {
                         lectures.add(mapToLecture(lecture))
                     }
                 }
@@ -52,8 +52,8 @@ class ProfileViewModel @Inject constructor(
         liveData {
             observeShuttleBusSchedule(Unit).collect { busSchedule ->
                 val buses = mutableListOf<ShuttleBus>()
-                busSchedule?.buses?.mapIndexed { index, shuttleBus ->
-                    if (index <= carParkCount) {
+                busSchedule?.buses?.map { shuttleBus ->
+                    if (buses.size < busCount) {
                         buses.add(mapToShuttleBus(shuttleBus))
                     }
                 }
@@ -66,8 +66,8 @@ class ProfileViewModel @Inject constructor(
         liveData {
             observeAvailableCarParks(Unit).collect { carParks ->
                 val carparks = mutableListOf<CarPark>()
-                carParks?.parkings?.mapIndexed { index, carPark ->
-                    if (index <= busCount) {
+                carParks?.parkings?.map { carPark ->
+                    if (carparks.size < carParkCount) {
                         carparks.add(mapToCarParkInfo(carPark))
                     }
                 }
