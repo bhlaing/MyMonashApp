@@ -1,19 +1,19 @@
 # MyMonashApp
 ## Table of content
 - [Overview](#overview)
-- Requirements
-- Usage
-- Technologies and Libraries 
-- Architecture and Design decisions
-- Standards
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Technologies and Libraries](#technologies-and-libraries)
+- [Architecture and Design decisions](#architecture-and-design-decisions)
+- [Standards](#standards)
   - Themes/Styles
   - Model naming
   - Layout naming
   - Drawable resource naming
-- Compromises and implementation decisions
-- Tests
-- CI/CD
-- Acknowledgement
+- [Compromises and implementation decisions](#compromises-and-implementation-decisions)
+- [Tests](#tests)
+- [CI/CD](#ci/cd)
+- [Acknowledgement](#ackowledgement)
 
 
 ## Overview
@@ -107,7 +107,7 @@ Please see _.github/workflows/ci_pr_build.yml_ for implementation
 [Failed CI to as proof can be found in this pull request](https://github.com/bhlaing/MyMonashApp/pull/1)
 
 ### Acknowledgement 
-I would like to thank PK Heng, Linden Darling and Damien Smith for providing me with this opportunity.
+I would like to thank PK Heng, Linden Darling and Damien Smith from Monash University for providing me with this opportunity.
 
 
 
