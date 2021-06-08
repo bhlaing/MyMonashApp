@@ -106,7 +106,7 @@ Uses coroutine experimental such as _callBackFlow_ and _TestCoroutineDispatcher_
 
 ## Tests
 - 100% unit-tests for Domain mappers and ViewModel
-- Accessibility tested for talkback and large fonts
+- Accessibility tested for talkback and large fonts. All fonts and graphics scale and adjust according to device display settings correctly
 
 ## Continuous integration and delivery
 Please see _.github/workflows/ci_pr_build.yml_ for implementation
